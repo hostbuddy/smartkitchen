@@ -14,10 +14,19 @@
 		<servlet-name>callapi</servlet-name>
 		<servlet-class>com.appvoyage.apppod.service.CallAPI</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>messagelistenerwebhook</servlet-name>
+		<servlet-class>com.appvoyage.apppod.service.MessageListenerWebhook</servlet-class>
+	</servlet>
 	
   <servlet-mapping>
 		<servlet-name>callapi</servlet-name>
 		<url-pattern>/callapi</url-pattern>
+	</servlet-mapping>
+	<!-- webhook will be available at mysite/messagelistenerwebhook -->
+	<servlet-mapping>
+		<servlet-name>messagelistenerwebhook</servlet-name>
+		<url-pattern>/messagelistenerwebhook</url-pattern>
 	</servlet-mapping>
 	
 </web-app>
