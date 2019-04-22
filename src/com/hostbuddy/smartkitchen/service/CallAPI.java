@@ -1,4 +1,4 @@
-package com.appvoyage.apppod.service;
+package com.hostbuddy.smartkitchen.service;
 
 import java.io.IOException;
 
@@ -11,8 +11,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.simple.JSONValue;
 
-
-import com.appvoyage.apppod.integration.HttpHelper;
+import com.hostbuddy.smartkitchen.integration.HttpHelper;
 
 public class CallAPI  extends HttpServlet {
 	/**
@@ -45,7 +44,7 @@ public class CallAPI  extends HttpServlet {
 			if(devKey!=null && email!=null && merchant!=null && orderId!=null && fifthParam!=null && !devKey.isEmpty() && !email.isEmpty() && !merchant.isEmpty() && !orderId.isEmpty() && !fifthParam.isEmpty()) {
 				if(api!=null) {
 					if(api.equals(PRINT)) {
-						com.appvoyage.apppod.integration.POSClient.Response response = callAPI(devKey, email, merchant, orderId, fifthParam, SERVER_PATH_URL_MAIN+"/print", "order-url");
+						com.hostbuddy.smartkitchen.integration.POSClient.Response response = callAPI(devKey, email, merchant, orderId, fifthParam, SERVER_PATH_URL_MAIN+"/print", "order-url");
 						System.err.println("HERE IS PRINT");
 						if(response.getStatusCode() == 200) {
 							json.put("STATUS", "SUCCESS");
@@ -57,7 +56,7 @@ public class CallAPI  extends HttpServlet {
 							json.put("MESSAGE", "API Failed because page error " + response.getStatusCode());
 						}
 					} else if (api.equals(MESSAGE)) {
-						com.appvoyage.apppod.integration.POSClient.Response response = callAPI(devKey, email, merchant, orderId, fifthParam, SERVER_PATH_URL_MAIN+"/message", "message");
+						com.hostbuddy.smartkitchen.integration.POSClient.Response response = callAPI(devKey, email, merchant, orderId, fifthParam, SERVER_PATH_URL_MAIN+"/message", "message");
 						System.err.println("HERE IS MESSAGE SENT");
 						if(response.getStatusCode() == 200) {
 							json.put("STATUS", "SUCCESS");
@@ -97,7 +96,7 @@ public class CallAPI  extends HttpServlet {
 		}
 	}
 	
-	public com.appvoyage.apppod.integration.POSClient.Response callAPI (String devKey, String email, String merchant, String orderId, String fifthParam, String url, String fifthParamKey) {
+	public com.hostbuddy.smartkitchen.integration.POSClient.Response callAPI (String devKey, String email, String merchant, String orderId, String fifthParam, String url, String fifthParamKey) {
 		try {
 			HttpHelper httpHelper = new HttpHelper();
 	        org.json.simple.JSONObject request = new org.json.simple.JSONObject();
@@ -106,7 +105,7 @@ public class CallAPI  extends HttpServlet {
 	        request.put("development-key", devKey);
 	        request.put("development-id", email);
 	        request.put("merchant-name", merchant);
-			com.appvoyage.apppod.integration.POSClient.Response response = httpHelper
+			com.hostbuddy.smartkitchen.integration.POSClient.Response response = httpHelper
 	                .post(url, request.toJSONString());
 	        System.out.println(response.toString());
 	        System.out.println(request.toString());

@@ -1,4 +1,4 @@
-package com.appvoyage.apppod.integration;
+package com.hostbuddy.smartkitchen.integration;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -10,15 +10,16 @@ import org.apache.http.client.methods.HttpRequestBase;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.util.EntityUtils;
-import java.net.URL;
 
-import com.appvoyage.apppod.integration.POSClient.Response;
+import com.hostbuddy.smartkitchen.integration.POSClient.Response;
+
+import java.net.URL;
 
 public class HttpHelper {
 
 	private HttpClient client;
 	public HttpHelper() {
-               ClassLoader classLoader = com.appvoyage.apppod.integration.HttpHelper.class.getClassLoader();
+               ClassLoader classLoader = com.hostbuddy.smartkitchen.integration.HttpHelper.class.getClassLoader();
                URL resource = classLoader.getResource("org/apache/http/impl/io/DefaultHttpRequestWriterFactory.class");
                System.out.println("###############DefaultHttpRequestWriterFactory coming from=> #############");
                System.out.println(resource);

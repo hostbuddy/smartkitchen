@@ -1,4 +1,4 @@
-package com.appvoyage.apppod.service;
+package com.hostbuddy.smartkitchen.service;
 
 import java.io.BufferedReader;
 import java.io.IOException;

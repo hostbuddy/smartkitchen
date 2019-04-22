@@ -1,4 +1,4 @@
-package com.appvoyage.apppod.integration;
+package com.hostbuddy.smartkitchen.integration;
 
 public interface POSClient {
 	
